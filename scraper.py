@@ -11,6 +11,13 @@ class Scraper:
         self._base_url = base_url
         self._driver = driver
 
+    def authorize(self, auth_url: str, username: str, password: str) -> None:
+        self._driver.get(url=auth_url)
+        wait = WebDriverWait(self._driver, 300)
+        wait.until(EC.element_to_be_clickable((By.NAME, "email"))).send_keys(username)
+        wait.until(EC.element_to_be_clickable((By.NAME, "psw"))).send_keys(password)
+        wait.until(EC.element_to_be_clickable((By.ID, "login_form"))).submit()
+        
     def to_base_page(self) -> None:
         self._driver.get(url=self._base_url)
         

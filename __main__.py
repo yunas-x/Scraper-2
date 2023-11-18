@@ -5,7 +5,10 @@ from .utils import (
     write_data)
 
 from .settings import (
-    url, 
+    url,
+    auth_url,
+    login,
+    password,
     excel_output_file_name, 
     excel_input_file_name)
 
@@ -16,7 +19,8 @@ if __name__ == "__main__":
     kads = read_cad_nums(name=to_path(excel_input_file_name))
     
     scraper = Scraper(driver=driver_builder.yield_driver(), base_url=url)
-    data = scraper.scrape_offset(kads=kads)
+    scraper.authorize(auth_url=auth_url, username=login, password=password)
+    data = scraper.scrape_offset(kads=kads, offset=5)
     
     create_file(name=excel_output_file_name)
     write_data(excel_output_file_name, data=data)

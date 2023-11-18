@@ -1,3 +1,6 @@
 url: str = r"https://kadbase.ru/"
-excel_output_file_name = r"C:\Users\yunas\OneDrive\Рабочий стол\Parser\addresses_out.xlsx"
-excel_input_file_name = r"C:\Users\yunas\OneDrive\Рабочий стол\Parser\addresses.xlsx"
+auth_url: str = r"https://kadbase.ru/lk/"
+login: str = ""
+password: str = ""
+excel_output_file_name: str = r"C:\Users\yunas\OneDrive\Рабочий стол\Parser\addresses_out.xlsx"
+excel_input_file_name: str = r"C:\Users\yunas\OneDrive\Рабочий стол\Parser\addresses.xlsx"
